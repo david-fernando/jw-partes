@@ -12,7 +12,6 @@ interface SearchProps {
   searchInputOpacity: AnimatedValueOrInterpolation;
   searchButtonOpacity: AnimatedValueOrInterpolation;
   closeButtonOpacity: AnimatedValueOrInterpolation;
-  inputRef: React.RefObject<TextInput | null>;
   isSearchOpen: boolean;
 }
 
@@ -25,6 +24,7 @@ interface Search {
   setIsSearchOpen: (isOpen: boolean) => void;
   actionButtonWidth: number;
   gap: number;
+  inputRef: React.RefObject<TextInput | null>;
 }
 
 export {
