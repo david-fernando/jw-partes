@@ -1,11 +1,14 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
 import { Animated, Dimensions, Easing } from 'react-native';
+import { SearchContext } from '../context/SearchContext';
 
-function useAnimation(inputRef: any, setIsSearchOpen: any, actionButtonWidth: number, gap: number) {
+function useAnimation(inputRef: any) {
   const animation = useRef(new Animated.Value(0)).current;
   const { width: screenWidth } = Dimensions.get('window');
   const containerWidth = (screenWidth || 390) * 1.01;
   const initialTabsWidth = 15;
+
+  const { setIsSearchOpen, actionButtonWidth, gap } = useContext(SearchContext);
 
   const openSearch = () => {
     setIsSearchOpen(true);
