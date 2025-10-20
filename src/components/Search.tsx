@@ -11,7 +11,7 @@ import close from '../images/close.png';
 
 function Search(searchProps: SearchProps){
 
-  const { actionButtonWidth, gap } = useContext(SearchContext);
+  const { actionButtonWidth, gap, inputRef } = useContext(SearchContext);
 
   const {
     openSearch,
@@ -20,7 +20,6 @@ function Search(searchProps: SearchProps){
     searchInputOpacity,
     searchButtonOpacity,
     closeButtonOpacity,
-    inputRef,
     isSearchOpen
   } = searchProps;
 
