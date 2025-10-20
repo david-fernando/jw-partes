@@ -2,32 +2,46 @@ import { StyleSheet } from 'react-native';
 import colors from '../utils/colors';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    gap: 14,
-    width: 145,
-    height: 70,
-    borderRadius: 50,
-    backgroundColor: colors.blueLotus,
-    paddingVertical: 4,
-    paddingHorizontal: 4,
+  keyboardAvoidingContainer: {
     position: 'absolute',
-    bottom: 32,
-    left: 35,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    alignItems: 'center',
+  },
+  container: {
+    width: '83%',
+    height: 70,
+    marginBottom: 0, 
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    position: 'absolute',
+    top: -105
+  },
+  tabsContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 70,
+    minWidth: 150,
+    borderRadius: 35,
+    backgroundColor: colors.blueLotus,
+    padding: 4,
+    gap: 8,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 6,
     elevation: 8,
+    overflow: 'hidden',
+    position: 'absolute',
+    left: 0
   },
   tab: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    maxWidth: 61,
+    minWidth: 61,
     height: 61,
     borderRadius: 50,
     gap: 3,
@@ -43,8 +57,9 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   image: {
-    maxWidth: 18,
-    maxHeight: 18
+    width: 18,
+    height: 18,
+    resizeMode: 'contain',
   }
 });
 
