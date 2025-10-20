@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Animated, TextInput } from 'react-native';
 
 type AnimatedValueOrInterpolation =
@@ -11,12 +12,23 @@ interface SearchProps {
   searchInputOpacity: AnimatedValueOrInterpolation;
   searchButtonOpacity: AnimatedValueOrInterpolation;
   closeButtonOpacity: AnimatedValueOrInterpolation;
-  inputRef: React.RefObject<TextInput | null>; 
-  actionButtonWidth: number;
-  gap: number;
+  inputRef: React.RefObject<TextInput | null>;
   isSearchOpen: boolean;
 }
 
+interface ContextChildren {
+  children: ReactNode;
+}
+
+interface Search {
+  isSearchOpen: boolean;
+  setIsSearchOpen: (isOpen: boolean) => void;
+  actionButtonWidth: number;
+  gap: number;
+}
+
 export {
-  SearchProps
+  SearchProps,
+  ContextChildren,
+  Search
 }
