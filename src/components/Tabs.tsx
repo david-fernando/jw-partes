@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef, useContext } from 'react';
 import { View, Text, Image, TextInput, Animated, KeyboardAvoidingView, Platform } from 'react-native';
+import { SearchContext } from '../context/SearchContext';
 import useAnimation from '../hooks/useAnimation';
 import Search from './Search';
 
@@ -9,11 +10,9 @@ import home from '../images/home.png';
 import add from '../images/add.png';
 
 function Tabs() {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const inputRef = useRef<TextInput>(null);
 
-  const actionButtonWidth = 49;
-  const gap = 23;
+  const { isSearchOpen, actionButtonWidth, gap } = useContext(SearchContext);
 
   const {
     openSearch,
@@ -24,7 +23,7 @@ function Tabs() {
     searchInputOpacity,
     searchButtonOpacity,
     closeButtonOpacity,
-  } = useAnimation(inputRef, setIsSearchOpen, actionButtonWidth, gap);
+  } = useAnimation(inputRef);
 
   const searchProps = {
     openSearch,
