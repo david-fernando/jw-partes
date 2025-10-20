@@ -7,10 +7,12 @@ const SearchContext = createContext<Search>({
   setIsSearchOpen: () => {},
   actionButtonWidth: 49,
   gap: 23,
+  inputRef: { current: null },
 })
 
 function SearchProvider({ children }: ContextChildren) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const inputRef = useRef<TextInput>(null);
   const actionButtonWidth = 49;
   const gap = 23;
   
@@ -19,6 +21,7 @@ function SearchProvider({ children }: ContextChildren) {
     setIsSearchOpen,
     actionButtonWidth,
     gap,
+    inputRef,
   }
 
   return (
