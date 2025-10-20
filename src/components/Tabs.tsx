@@ -10,7 +10,6 @@ import home from '../images/home.png';
 import add from '../images/add.png';
 
 function Tabs() {
-  const inputRef = useRef<TextInput>(null);
 
   const { isSearchOpen, actionButtonWidth, gap } = useContext(SearchContext);
 
@@ -23,7 +22,7 @@ function Tabs() {
     searchInputOpacity,
     searchButtonOpacity,
     closeButtonOpacity,
-  } = useAnimation(inputRef);
+  } = useAnimation();
 
   const searchProps = {
     openSearch,
@@ -32,7 +31,6 @@ function Tabs() {
     searchInputOpacity,
     searchButtonOpacity,
     closeButtonOpacity,
-    inputRef,
     actionButtonWidth,
     gap,
     isSearchOpen,
