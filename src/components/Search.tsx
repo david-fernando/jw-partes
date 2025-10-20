@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { View, Image, TouchableOpacity, TextInput, Animated } from 'react-native';
+import { SearchContext } from '../context/SearchContext';
 import { SearchProps } from '../interface/interface';
 import styles from '../styles/Search.style';
 
@@ -9,6 +11,8 @@ import close from '../images/close.png';
 
 function Search(searchProps: SearchProps){
 
+  const { actionButtonWidth, gap } = useContext(SearchContext);
+
   const {
     openSearch,
     closeSearch,
@@ -17,8 +21,6 @@ function Search(searchProps: SearchProps){
     searchButtonOpacity,
     closeButtonOpacity,
     inputRef,
-    actionButtonWidth,
-    gap,
     isSearchOpen
   } = searchProps;
 
