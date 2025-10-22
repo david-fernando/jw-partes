@@ -18,6 +18,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
   },
+  contentSearch: {
+    flex: 2,
+    width: '100%',
+    maxHeight: '30%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    position: 'relative',
+    top: -100,
+  },
   text: {
     fontFamily: 'Inter',
     fontSize: 28,
