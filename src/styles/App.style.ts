@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    position: 'relative',
-    top: -100,
+    position: 'relative'
   },
   text: {
     fontFamily: 'Inter',
