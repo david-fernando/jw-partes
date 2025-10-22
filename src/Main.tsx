@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Platform  } from 'react-native';
 import { SearchContext } from './context/SearchContext'
 import BackupButton from './components/BackupButton';
 import Tabs from './components/Tabs';
@@ -16,7 +16,7 @@ function Main() {
     <View style={styles.container}>
       {(!isSearchOpen)? <BackupButton /> : null }
         {(isSearchOpen)? (
-          <View style={styles.contentSearch}>
+          <View style={[styles.contentSearch, { top: (Platform.OS === 'ios')? -100 : 50}]}>
             <Text style={styles.text}>Hmm… nada por aqui!</Text>
             <Text style={[styles.instruction, { width: '70%' }]}>Verifique se a palavra está certa, ou tente de novo!</Text>
           </View>
