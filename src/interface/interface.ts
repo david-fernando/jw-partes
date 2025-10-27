@@ -27,8 +27,14 @@ interface Search {
   inputRef: React.RefObject<TextInput | null>;
 }
 
+interface SelectProps {
+  setMonth: (value: string) => void;
+  month: string;
+}
+
 export {
   SearchProps,
   ContextChildren,
-  Search
+  Search,
+  SelectProps
 }
