@@ -32,9 +32,15 @@ interface SelectProps {
   month: string;
 }
 
+interface Designate {
+  screenPosistion: Animated.Value;
+  screenWidth: number;
+}
+
 export {
   SearchProps,
   ContextChildren,
   Search,
-  SelectProps
+  SelectProps,
+  Designate
 }
