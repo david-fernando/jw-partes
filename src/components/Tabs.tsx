@@ -1,5 +1,5 @@
 import { useRef, useContext } from 'react';
-import { View, Text, Image, TextInput, Animated, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, Image, TextInput, Animated, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
 import { SearchContext } from '../context/SearchContext';
 import useAnimation from '../hooks/useAnimation';
 import Search from './Search';
@@ -16,6 +16,7 @@ function Tabs() {
   const {
     openSearch,
     closeSearch,
+    openDesignate,
     tabsWidth,
     tabsOpacity,
     searchInputWidth,
@@ -47,10 +48,10 @@ function Tabs() {
             <Image source={home} style={styles.image} />
             <Text style={styles.tabText}>Home</Text>
           </View>
-          <View style={styles.tab}>
+          <TouchableOpacity style={styles.tab} onPress={openDesignate}>
             <Image source={add} style={styles.image} />
             <Text style={styles.tabText}>Designar</Text>
-          </View>
+          </TouchableOpacity>
         </Animated.View>
 
         <Search {...searchProps} />
