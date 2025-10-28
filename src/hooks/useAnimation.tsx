@@ -1,6 +1,7 @@
 import { useRef, useContext } from 'react';
-import { Animated, Dimensions, Easing } from 'react-native';
+import { Animated, Dimensions, Easing, PanResponder } from 'react-native';
 import { SearchContext } from '../context/SearchContext';
+import { DesignateContext } from '../context/DesignateContext';
 
 function useAnimation() {
   const animation = useRef(new Animated.Value(0)).current;
@@ -9,6 +10,7 @@ function useAnimation() {
   const initialTabsWidth = 15;
 
   const { setIsSearchOpen, actionButtonWidth, gap, inputRef } = useContext(SearchContext);
+  const { screenPosistion } = useContext(DesignateContext);
 
   const openSearch = () => {
     setIsSearchOpen(true);
@@ -27,12 +29,47 @@ function useAnimation() {
     setIsSearchOpen(false);
     inputRef.current?.blur();
     Animated.timing(animation, {
-      toValue: 0,
+      toValue: 1,
       duration: 350,
       easing: Easing.bezier(0.65, 0, 0.35, 1),
       useNativeDriver: false,
     }).start();
   };
+
+  const openDesignate = () => {
+    Animated.timing(screenPosistion, {
+      toValue: 0,
+      duration: 400,
+      useNativeDriver: true,
+    }).start();
+  }
+
+  const closeDesignate = () => {
+    Animated.timing(screenPosistion, {
+      toValue: screenWidth,
+      duration: 400,
+      useNativeDriver: true,
+    }).start();
+  }
+
+  const slideToClose = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: (_, gestureState) =>
+        gestureState.dx > 10,
+      onPanResponderMove: (_, gestureState) => {
+        if (gestureState.dx > 0) {
+          screenPosistion.setValue(gestureState.dx);
+        }
+      },
+      onPanResponderRelease: (_, gestureState) => {
+        const isGreaterThanThirtyPercent = gestureState.dx > screenWidth * 0.3
+        if (!isGreaterThanThirtyPercent) {
+          return openDesignate();
+        }
+        closeDesignate();
+      },
+    })
+  ).current;
 
   const tabsWidth = animation.interpolate({
     inputRange: [0, 1],
@@ -64,12 +101,16 @@ function useAnimation() {
   return {
     openSearch,
     closeSearch,
+    openDesignate,
+    closeDesignate,
+    slideToClose,
     tabsWidth,
     tabsOpacity,
     searchInputWidth,
     searchInputOpacity,
     searchButtonOpacity,
-    closeButtonOpacity
+    closeButtonOpacity,
+    screenPosistion,
   };
 }
 
