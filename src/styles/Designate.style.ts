@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 20,
+    position: 'absolute',
+    minHeight: '100%',
+    minWidth: '100%',
+    zIndex: 2,
   },
   content: {
     flex: 2,
@@ -41,9 +45,10 @@ const styles = StyleSheet.create({
     height: 49,
     maxHeight: 49,
     width: 144,
-    position: 'relative',
-    top: 126,
-    right: -88,
+    maxWidth: 144,
+    // position: 'relative',
+    // top: 126,
+    // right: -88,
   },
   contentButton: {
     flex: 3,
@@ -63,6 +68,31 @@ const styles = StyleSheet.create({
   buttonImage: {
     maxHeight: 13,
     maxWidth: 20,
+  },
+  backButton: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 49,
+    height: 49,
+    maxHeight: 49,
+    maxWidth: 49,
+    backgroundColor: colors.blueLotus,
+    borderRadius: 50,
+  },
+  backButtonImage: {
+    position: 'relative',
+    left: -2,
+  },
+  setOfButtons: {
+    width: '83%',
+    height: 49,
+    marginBottom: 0, 
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    position: 'relative',
+    top: 126
   }
 })
 
