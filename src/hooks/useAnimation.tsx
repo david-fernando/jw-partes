@@ -29,7 +29,7 @@ function useAnimation() {
     setIsSearchOpen(false);
     inputRef.current?.blur();
     Animated.timing(animation, {
-      toValue: 1,
+      toValue: 0,
       duration: 350,
       easing: Easing.bezier(0.65, 0, 0.35, 1),
       useNativeDriver: false,
