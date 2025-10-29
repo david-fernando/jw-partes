@@ -45,10 +45,7 @@ const styles = StyleSheet.create({
     height: 49,
     maxHeight: 49,
     width: 144,
-    maxWidth: 144,
-    // position: 'relative',
-    // top: 126,
-    // right: -88,
+    maxWidth: 144
   },
   contentButton: {
     flex: 3,
