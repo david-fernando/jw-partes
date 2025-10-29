@@ -1,13 +1,13 @@
 import { SearchProvider } from './context/SearchContext'
 import { DesignateProvider } from './context/DesignateContext'
-import Main from './Main';
-import Designate from './components/Designate';
+import Home from './screens/Home';
+import Designate from './screens/Designate';
 
 export default function App() {
   return (
     <SearchProvider>
       <DesignateProvider>
-        <Main />
+        <Home />
         <Designate/>
       </DesignateProvider>
     </SearchProvider>
