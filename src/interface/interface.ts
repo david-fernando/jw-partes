@@ -37,10 +37,15 @@ interface Designate {
   screenWidth: number;
 }
 
+interface BackButtonProps {
+  onPress: () => void;
+}
+
 export {
   SearchProps,
   ContextChildren,
   Search,
   SelectProps,
-  Designate
+  Designate,
+  BackButtonProps
 }
