@@ -66,21 +66,6 @@ const styles = StyleSheet.create({
     maxHeight: 13,
     maxWidth: 20,
   },
-  backButton: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 49,
-    height: 49,
-    maxHeight: 49,
-    maxWidth: 49,
-    backgroundColor: colors.blueLotus,
-    borderRadius: 50,
-  },
-  backButtonImage: {
-    position: 'relative',
-    left: -2,
-  },
   setOfButtons: {
     width: '83%',
     height: 49,
