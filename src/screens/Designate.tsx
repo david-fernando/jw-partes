@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { Animated, View, Text, Image, TouchableOpacity } from 'react-native';
 import { DesignateContext } from '../context/DesignateContext';
+import BackButton from '../components/BackButton';
 import useAnimation from '../hooks/useAnimation';
 
 import styles from '../styles/Designate.style';
@@ -26,9 +27,7 @@ function Designate() {
         <Select setMonth={setMonth} month={month} />
       </View>
       <View style={styles.setOfButtons}>
-      <TouchableOpacity onPress={closeDesignate} style={styles.backButton}>
-          <Image source={left} style={styles.backButtonImage}/>
-        </TouchableOpacity>
+        <BackButton onPress={closeDesignate} />
 
         <TouchableOpacity style={styles.continueButton}>
           <View style={styles.contentButton}>
